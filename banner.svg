@@ -1,0 +1,148 @@
+<svg width="900" height="220" viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#000d0a"/>
+      <stop offset="35%" stop-color="#020f0b"/>
+      <stop offset="65%" stop-color="#041410"/>
+      <stop offset="100%" stop-color="#000d0a"/>
+    </linearGradient>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#0d6b52" stroke-width="0.3" opacity="0.2"/>
+    </pattern>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow2">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <style>
+    .p1{opacity:0;animation:fv 0.6s ease 0.0s forwards;}
+    .p2{opacity:0;animation:fv 0.6s ease 0.12s forwards;}
+    .p3{opacity:0;animation:fv 0.6s ease 0.24s forwards;}
+    .p4{opacity:0;animation:fv 0.6s ease 0.36s forwards;}
+    .p5{opacity:0;animation:fv 0.6s ease 0.48s forwards;}
+    .t1{animation:fu 0.9s ease 0.2s forwards;opacity:0;}
+    .t2{animation:fu 0.9s ease 0.45s forwards;opacity:0;}
+    .t3{animation:fu 0.9s ease 0.65s forwards;opacity:0;}
+    .s1{animation:fu 0.9s ease 0.85s forwards;opacity:0;}
+    .s2{animation:fu 0.9s ease 1.0s forwards;opacity:0;}
+    .s3{animation:fu 0.9s ease 1.15s forwards;opacity:0;}
+    @keyframes fv{from{opacity:0;}to{opacity:1;}}
+    @keyframes fu{from{opacity:0;transform:translateY(5px);}to{opacity:1;transform:translateY(0);}}
+    .scan{animation:scanline 3.5s ease 0.5s forwards;}
+    @keyframes scanline{from{transform:translateX(-5px);opacity:0.6;}to{transform:translateX(910px);opacity:0;}}
+  </style>
+
+  <!-- Background -->
+  <rect width="900" height="220" fill="url(#bg)"/>
+  <rect width="900" height="220" fill="url(#grid)"/>
+
+  <!-- Ambient glow orbs -->
+  <ellipse cx="450" cy="90" rx="260" ry="75" fill="#00b37a" opacity="0.04" filter="url(#glow2)"/>
+  <circle cx="130" cy="90" r="55" fill="#00d4aa" opacity="0.04" filter="url(#glow2)"/>
+  <circle cx="770" cy="90" r="55" fill="#00d4aa" opacity="0.04" filter="url(#glow2)"/>
+
+  <!-- Scan line sweep on load -->
+  <rect class="scan" x="-5" y="0" width="4" height="220" fill="#00d4aa" opacity="0.3"/>
+
+  <!-- ═══ LEFT SPECTRUM DECORATION ═══ -->
+  <line class="p1" x1="18" y1="158" x2="133" y2="158" stroke="#0d5c42" stroke-width="1" opacity="0.7"/>
+  <line class="p1" x1="18" y1="38"  x2="18"  y2="158" stroke="#0d5c42" stroke-width="1" opacity="0.7"/>
+
+  <!-- peak m/z=14 small -->
+  <g class="p2" filter="url(#glow)">
+    <line x1="38" y1="158" x2="38" y2="143" stroke="#00d4aa" stroke-width="2.2"/>
+    <text x="38" y="139" font-family="monospace" font-size="7" fill="#00d4aa" text-anchor="middle" opacity="0.85">14</text>
+  </g>
+  <!-- peak m/z=16 small -->
+  <g class="p2" filter="url(#glow)">
+    <line x1="56" y1="158" x2="56" y2="146" stroke="#00d4aa" stroke-width="2.2"/>
+    <text x="56" y="142" font-family="monospace" font-size="7" fill="#00d4aa" text-anchor="middle" opacity="0.85">16</text>
+  </g>
+  <!-- peak m/z=28 TALL -->
+  <g class="p3" filter="url(#glow)">
+    <line x1="76" y1="158" x2="76" y2="55" stroke="#00ffc8" stroke-width="2.8"/>
+    <polygon points="71,55 76,42 81,55" fill="#00d4aa" opacity="0.55"/>
+    <text x="76" y="38" font-family="monospace" font-size="7" fill="#00ffc8" text-anchor="middle" font-weight="bold">28</text>
+  </g>
+  <!-- peak m/z=32 medium -->
+  <g class="p4" filter="url(#glow)">
+    <line x1="96" y1="158" x2="96" y2="98" stroke="#00d4aa" stroke-width="2.2"/>
+    <polygon points="91,98 96,85 101,98" fill="#00d4aa" opacity="0.4"/>
+    <text x="96" y="81" font-family="monospace" font-size="7" fill="#00d4aa" text-anchor="middle" opacity="0.9">32</text>
+  </g>
+  <!-- peak m/z=44 medium-tall -->
+  <g class="p5" filter="url(#glow)">
+    <line x1="116" y1="158" x2="116" y2="76" stroke="#00d4aa" stroke-width="2.2"/>
+    <polygon points="111,76 116,63 121,76" fill="#00d4aa" opacity="0.4"/>
+    <text x="116" y="59" font-family="monospace" font-size="7" fill="#00d4aa" text-anchor="middle" opacity="0.9">44</text>
+  </g>
+  <text class="p1" x="74" y="173" font-family="monospace" font-size="7" fill="#0d6b52" text-anchor="middle" letter-spacing="1">m/z</text>
+
+  <!-- ═══ RIGHT SPECTRUM DECORATION (mirrored) ═══ -->
+  <line class="p1" x1="767" y1="158" x2="882" y2="158" stroke="#0d5c42" stroke-width="1" opacity="0.7"/>
+  <line class="p1" x1="882" y1="38"  x2="882" y2="158" stroke="#0d5c42" stroke-width="1" opacity="0.7"/>
+
+  <g class="p2" filter="url(#glow)">
+    <line x1="862" y1="158" x2="862" y2="143" stroke="#00d4aa" stroke-width="2.2"/>
+    <text x="862" y="139" font-family="monospace" font-size="7" fill="#00d4aa" text-anchor="middle" opacity="0.85">14</text>
+  </g>
+  <g class="p2" filter="url(#glow)">
+    <line x1="844" y1="158" x2="844" y2="146" stroke="#00d4aa" stroke-width="2.2"/>
+    <text x="844" y="142" font-family="monospace" font-size="7" fill="#00d4aa" text-anchor="middle" opacity="0.85">16</text>
+  </g>
+  <g class="p3" filter="url(#glow)">
+    <line x1="824" y1="158" x2="824" y2="55" stroke="#00ffc8" stroke-width="2.8"/>
+    <polygon points="819,55 824,42 829,55" fill="#00d4aa" opacity="0.55"/>
+    <text x="824" y="38" font-family="monospace" font-size="7" fill="#00ffc8" text-anchor="middle" font-weight="bold">28</text>
+  </g>
+  <g class="p4" filter="url(#glow)">
+    <line x1="804" y1="158" x2="804" y2="98" stroke="#00d4aa" stroke-width="2.2"/>
+    <polygon points="799,98 804,85 809,98" fill="#00d4aa" opacity="0.4"/>
+    <text x="804" y="81" font-family="monospace" font-size="7" fill="#00d4aa" text-anchor="middle" opacity="0.9">32</text>
+  </g>
+  <g class="p5" filter="url(#glow)">
+    <line x1="784" y1="158" x2="784" y2="76" stroke="#00d4aa" stroke-width="2.2"/>
+    <polygon points="779,76 784,63 789,76" fill="#00d4aa" opacity="0.4"/>
+    <text x="784" y="59" font-family="monospace" font-size="7" fill="#00d4aa" text-anchor="middle" opacity="0.9">44</text>
+  </g>
+  <text class="p1" x="826" y="173" font-family="monospace" font-size="7" fill="#0d6b52" text-anchor="middle" letter-spacing="1">m/z</text>
+
+  <!-- ═══ CENTRE TEXT ═══ -->
+
+  <!-- Main title -->
+  <text class="t1" x="450" y="75"
+    font-family="'Arial Black', Impact, sans-serif"
+    font-size="22" font-weight="900" fill="white"
+    text-anchor="middle" letter-spacing="3">MASS SPECTROMETRY OCR PIPELINE</text>
+
+  <!-- Subtitle -->
+  <text class="t2" x="450" y="100"
+    font-family="Arial, sans-serif" font-size="12.5" fill="#00d4aa"
+    text-anchor="middle" letter-spacing="2">OpenCV · EasyOCR · Hough Transform · Pandas</text>
+
+  <!-- Divider -->
+  <line x1="195" y1="118" x2="705" y2="118" stroke="#0d6b52" stroke-width="0.5" opacity="0.6"/>
+
+  <!-- Stats row -->
+  <text class="s1" x="285" y="140" font-family="monospace" font-size="11" fill="#00d4aa" text-anchor="middle" font-weight="700">85% Accuracy</text>
+  <text class="s1" x="285" y="155" font-family="monospace" font-size="9" fill="#0d5c42" text-anchor="middle">m/z Peak Extraction</text>
+
+  <line x1="365" y1="126" x2="365" y2="162" stroke="#0d3d2e" stroke-width="0.5"/>
+
+  <text class="s2" x="450" y="140" font-family="monospace" font-size="11" fill="#00d4aa" text-anchor="middle" font-weight="700">2 Spectra Types · 25 Compounds</text>
+  <text class="s2" x="450" y="155" font-family="monospace" font-size="9" fill="#0d5c42" text-anchor="middle">Integer Reference + Noisy Instrument Decimals</text>
+
+  <line x1="535" y1="126" x2="535" y2="162" stroke="#0d3d2e" stroke-width="0.5"/>
+
+  <text class="s3" x="618" y="140" font-family="monospace" font-size="11" fill="#00d4aa" text-anchor="middle" font-weight="700">CO₂ · CO · N₂ · O₂</text>
+  <text class="s3" x="618" y="155" font-family="monospace" font-size="9" fill="#0d5c42" text-anchor="middle">Combustion Gas Database</text>
+
+  <!-- Bottom tag -->
+  <text class="t3" x="450" y="208"
+    font-family="'Courier New', monospace" font-size="9.5"
+    fill="#0d3d2e" text-anchor="middle" letter-spacing="1.5">IISc CGPL LAB  ·  SOFTWARE ENGINEERING INTERNSHIP  ·  2025</text>
+</svg>
